@@ -15,15 +15,14 @@ import LoadingCard from './LoadingCard';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
+   
+  // Initialize LocomotiveScroll
+  const locomotiveScroll = new LocomotiveScroll();
   useEffect(() => {
-    // Initialize LocomotiveScroll
-    const locomotiveScroll = new LocomotiveScroll();
-
     // Simulate loading state with a timeout
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Adjust the delay according to actual load time
+    }, 2000); // Adjust the delay according to actual load time
 
     return () => clearTimeout(timer);
   }, []);

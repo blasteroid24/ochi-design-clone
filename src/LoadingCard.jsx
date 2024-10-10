@@ -1,66 +1,23 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const LoadingCard = () => {
-  const loadingContainerVariants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: [0, 1],
-      transition: {
-        duration: 1,
-        ease: 'easeInOut',
-        repeat: Infinity,
-        repeatType: 'mirror',
-      },
-    },
-  };
-
   return (
-    <div className="loading-container">
+    <div className="flex justify-center items-center min-h-screen bg-zinc-900">
       <motion.div
-        className="loading-card"
-        variants={loadingContainerVariants}
-        initial="initial"
-        animate="animate"
+        className="relative w-80 h-48 bg-opacity-20 bg-zinc-800 backdrop-blur-lg rounded-lg shadow-lg border border-gray-700 flex flex-col justify-center items-center"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        <motion.div
-          className="loading-bar"
-          animate={{ width: ["0%", "100%"] }}
-          transition={{
-            duration: 1.5,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "mirror"
-          }}
-        />
+        {/* Circular Glowing Loader */}
+        <div className="relative">
+          <div className="absolute inset-0 animate-ping rounded-full border-4 border-white opacity-30"></div>
+          <div className="w-16 h-16 border-t-4 border-gray-100 border-solid rounded-full animate-spin"></div>
+        </div>
+        
+        <p className="text-gray-300 text-lg font-semibold mt-5">Loading...</p>
       </motion.div>
-      <style jsx>{`
-        .loading-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: #f0f0f0;
-        }
-        .loading-card {
-          width: 300px;
-          height: 200px;
-          background-color: #fff;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          border-radius: 12px;
-          overflow: hidden;
-        }
-        .loading-bar {
-          position: absolute;
-          bottom: 0;
-          height: 4px;
-          background-color: #3498db;
-        }
-      `}</style>
     </div>
   );
 };
