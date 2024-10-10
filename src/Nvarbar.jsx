@@ -26,7 +26,7 @@ function Nvarbar() {
 
       <div className="links uniquifier flex gap-10">
         {["Services", "OurWork", "About Us", "Insights", "Contact Us"].map((item, index) => (<div><motion.a whileHover={{ borderBottom: '2px solid white' }}
-          
+ 
           key={index} className={` text-lg font-light ${index === 4 && "ml-32 "}`} href="">{item}</motion.a></div>))}
       </div>
     </div>
